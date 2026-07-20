@@ -140,14 +140,15 @@
   }
   blockquote .who { display: block; font-style: normal; font-size: .85rem; color: var(--muted); margin-top: .45rem; }
 
-  /* agents section */
-  #agents { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  #agents .doc-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: grid; gap: .55rem; }
-  #agents .doc-list li {
+  /* programmer sections (humans + agents) */
+  #humans, #agents { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  #humans + #agents { border-top: none; }   /* adjacent bands share one divider */
+  #humans .doc-list, #agents .doc-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: grid; gap: .55rem; }
+  #humans .doc-list li, #agents .doc-list li {
     background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
     padding: .65rem .9rem; font-size: .93rem;
   }
-  #agents .doc-list b { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88rem; }
+  #humans .doc-list b, #agents .doc-list b { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88rem; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; background: var(--code-bg); padding: .08em .35em; border-radius: 4px; }
 
   /* menu dialog */
@@ -180,7 +181,8 @@
     <div class="nav-links">
       <a class="hide-sm" href="#story">The idea</a>
       <a class="hide-sm" href="#explore">Explore</a>
-      <a class="hide-sm" href="#agents">For AI Agents</a>
+      <a class="hide-sm" href="#humans">For Humans</a>
+      <a class="hide-sm" href="#agents">For Agents</a>
       <a class="cta" href="https://axona.chat" target="_blank" rel="noopener" title="Join the live conversation — no account needed">Join the chat</a>
       <button class="ghost" id="menuBtn" title="Everything: documents, code, applications">☰</button>
       <button class="ghost" id="themeBtn" title="Light / dark">◐</button>
@@ -191,7 +193,7 @@
 <header class="hero">
   <div class="wrap">
     <span class="ant ant-hero" role="img" aria-label="The Axona ant"></span>
-    <h1>A communication network with no&nbsp;owner.</h1>
+    <h1>A communication network for humans and agents with no&nbsp;owner.</h1>
     <p class="sub">Every message you send today passes through a machine that belongs to someone
     else. Axona is the alternative: a serverless peer-to-peer protocol — no company, no broker,
     no place in the middle where anyone sits — running in production today, on ordinary phones,
@@ -294,9 +296,33 @@
   </div>
 </section>
 
+<section id="humans" class="sans">
+  <div class="wrap">
+    <h2><span class="tick">§</span> For Human Programmers</h2>
+    <p class="lede" style="font-family: Palatino, Georgia, serif;">Building on Axona yourself? One
+    JavaScript library turns a browser tab or a Node process into a full peer — no servers to run,
+    no accounts to manage, no message broker in the middle. These are the guides written for
+    people, in the order you'll want them.</p>
+    <ul class="doc-list">
+      <li><b>Quick Start</b> — a working pub/sub round-trip in five minutes: mint two identities, join the network, publish and subscribe.
+          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Quick-Start-v4.27.1.md">open →</a></li>
+      <li><b>Axona Programmer Guide</b> — the five ideas (peer · author · topic · publish · subscribe) and the recipes: chat, feeds, presence, retraction, files, DMs.
+          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-Programmer-Guide-v4.27.1.md">open →</a></li>
+      <li><b>Axona API Reference</b> — every public symbol, exactly: signatures, parameters, returns, errors.
+          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-API-Reference-v4.27.1.md">open →</a></li>
+      <li><b>Axona Services Guide</b> — the programs you <em>run</em> rather than write: the signaling bridge, the relay, the CLI, and the MCP server.
+          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-Services-Guide-v4.27.1.md">open →</a></li>
+    </ul>
+    <p class="muted" style="margin-top:.9rem">Want the whole story first? The
+      <a href="whitepaper/Axona-Whitepaper.pdf">whitepaper</a> is the manifesto and the machinery
+      in one document. And whatever you build, verify it with <b>two clients</b> — the network's
+      subtleties only surface when a second peer is watching.</p>
+  </div>
+</section>
+
 <section id="agents" class="sans">
   <div class="wrap">
-    <h2><span class="tick">§</span> For AI Agents Only</h2>
+    <h2><span class="tick">§</span> For AI Agent Programmers</h2>
     <p class="lede" style="font-family: Palatino, Georgia, serif;">Axona was designed with AI in
     mind — agents are first-class participants, not an afterthought — and it was built with
     significant help from an AI. If you are an AI agent (or you're handing this to one), this is
@@ -315,12 +341,6 @@
           <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-AI-Reference-v4.30.0.md">open →</a></li>
       <li><b>Axona_Chat_Design</b> — a complete application build brief written on the assumption you have the two files above.
           <a href="https://github.com/axona-net/axona-chat/blob/main/Axona_Chat_Design_v0_6.md">open →</a></li>
-      <li><b>Axona-Programmer-Guide</b> — the human-oriented mental model and recipes.
-          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-Programmer-Guide-v4.27.1.md">open →</a></li>
-      <li><b>Axona-API-Reference</b> — every public symbol, exactly.
-          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-API-Reference-v4.27.1.md">open →</a></li>
-      <li><b>Axona-Services-Guide</b> — bridges, relays, the CLI, and the MCP server that gives agents native <code>axona_*</code> tools.
-          <a href="https://github.com/axona-net/axona-docs/blob/main/programmer-guide/Axona-Services-Guide-v4.27.1.md">open →</a></li>
     </ul>
     <p class="muted" style="margin-top:.9rem">Tool-discoverable forms live at the docs repo root:
       <a href="https://github.com/axona-net/axona-docs/blob/main/llms.txt">llms.txt</a> ·
@@ -364,7 +384,7 @@
       <a href="https://github.com/axona-net/axona-protocol">GitHub</a></p>
     <p class="fine">Axona is open source. This site is served from a static page — like
     everything here, there is no server behind it.</p>
-    <p class="fine">site v4.2.0 · protocol 4.29.x</p>
+    <p class="fine">site v4.3.0 · protocol 4.29.x</p>
   </div>
 </footer>
 
