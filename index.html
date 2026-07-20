@@ -99,6 +99,9 @@
   .btn.secondary:hover { text-decoration: none; border-color: var(--rust); }
 
   /* ── sections ────────────────────────────────────── */
+  /* Offset in-page anchor jumps by the sticky nav's height so a section's
+     heading isn't hidden under the nav when you click a nav link. */
+  section[id] { scroll-margin-top: 4.75rem; }
   section { padding: 2.6rem 0; }
   section h2 { font-size: 1.6rem; margin-bottom: 1rem; }
   section h2 .tick { color: var(--rust); }
@@ -384,7 +387,7 @@
       <a href="https://github.com/axona-net/axona-protocol">GitHub</a></p>
     <p class="fine">Axona is open source. This site is served from a static page — like
     everything here, there is no server behind it.</p>
-    <p class="fine">site v4.3.0 · protocol 4.29.x</p>
+    <p class="fine">site v4.3.1 · protocol 4.29.x</p>
   </div>
 </footer>
 
