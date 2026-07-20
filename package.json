@@ -1,0 +1,10 @@
+{
+  "name": "axona-web",
+  "version": "4.1.0",
+  "private": true,
+  "description": "The axona.net website — the front door of the Axona protocol.",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server -p 5173 -c-1"
+  }
+}
