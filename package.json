@@ -1,6 +1,6 @@
 {
   "name": "axona-web",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "private": true,
   "description": "The axona.net website — the front door of the Axona protocol.",
   "license": "MIT",
